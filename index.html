@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Entrada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .contenedor {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px;
+    }
+    .columna-izquierda {
+      flex: 1;
+      text-align: left;
+    }
+    .imagen {
+      border: 6px solid #8B0000;
+      border-radius: 12px;
+      max-width: 100%;
+      height: auto;
+    }
+    .columna-derecha {
+      flex: 1;
+      padding: 20px;
+      background-color: #8B0000;
+      border: 6px solid #8B0000;
+      border-radius: 12px;
+      color: #FFFFFF;
+    }
+    .formulario {
+      width: 90%;
+      margin: auto;
+      text-align: center;
+    }
+    input[type="text"], select, textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      resize: vertical;
+    }
+    button {
+      background-color: #4CAF50; /* Color verde */
+      color: #FFFFFF;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049; /* Cambio de color al pasar el cursor */
+    }
+    #promptForm {
+      display: none;
+    }
+    #promptForm textarea {
+      width: 90%;
+      height: 150px;
+      margin: 10px auto;
+      display: block;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+    }
+    footer img {
+      border: 6px solid #8B0000;
+      border-radius: 12px;
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <div class="columna-izquierda">
+      <img src="San_Juan_Maria_Vianney.jpg" alt="San Juan Maria Vianney" class="imagen">
+    </div>
+    <div class="columna-derecha">
+      <div class="formulario">
+        <h1>Unidad de Aprendizaje 2024</h1>
+        <h2>CEP Parroquial San Juan María Vianney</h2>
+        <form id="inputForm">
+          <div>
+            <label for="nombreUnidad"><b>Nombre de la Unidad:</b></label><br>
+            <input type="text" id="nombreUnidad" name="nombreUnidad" required><br>
+
+            <label for="nivelEducativo"><b>Nivel Educativo:</b></label><br>
+            <select id="nivelEducativo" name="nivelEducativo" required>
+              <option value="Inicial">Inicial</option>
+              <option value="Primaria">Primaria</option>
+              <option value="Secundaria">Secundaria</option>
+            </select><br>
+
+            <label for="grado"><b>Grado:</b></label><br>
+            <input type="text" id="grado" name="grado" required><br>
+
+            <label for="area"><b>Área:</b></label><br>
+            <input type="text" id="area" name="area" required><br>
+
+            <label for="numSesiones"><b>Número de sesiones de aprendizaje:</b></label><br>
+            <select id="numSesiones" name="numSesiones" required>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select><br>
+
+            <label for="competencias"><b>¿Cuáles son las COMPETENCIAS a desarrollar? (Separar por guión y párrafos):</b></label><br>
+            <textarea id="competencias" name="competencias" rows="4" required></textarea><br>
+
+            <label for="capacidades"><b>¿Cuáles son las CAPACIDADES a desarrollar? (Separar por guión y párrafos):</b></label><br>
+            <textarea id="capacidades" name="capacidades" rows="4" required></textarea><br>
+
+            <label for="desempenios"><b>¿Cuáles son los DESEMPEÑOS? (Separar por guión y párrafos):</b></label><br>
+            <textarea id="desempenios" name="desempenios" rows="4" cols="50" required></textarea><br><br>
+
+            <label for="temas"><b>¿Cuáles son los TEMAS? (Separar por guión y párrafos):</b></label><br>
+            <textarea id="temas" name="temas" rows="4" cols="50" required></textarea><br><br>
+
+            <button type="button" id="mostrarPromptBtn" onclick="mostrarPrompt()">Mostar el PROMPT</button>
+          </div>
+        </form>
+      </div>
+      <form id="promptForm">
+        <textarea id="textoPrompt" readonly></textarea><br>
+        <button type="button" id="copiarPromptBtn" onclick="copiarPrompt()">Copiar el PROMPT</button>
+      </form>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <footer>
+    <img src="OMNITECHCLOUD.jpg" alt="OMNITECHCLOUD">
+  </footer>
+
+  <script>
+    function mostrarPrompt() {
+      var nombreUnidad = document.getElementById("nombreUnidad").value;
+      var nivelEducativo = document.getElementById("nivelEducativo").value;
+      var grado = document.getElementById("grado").value;
+      var area = document.getElementById("area").value;
+      var numSesiones = document.getElementById("numSesiones").value;
+      var competencias = document.getElementById("competencias").value;
+      var capacidades = document.getElementById("capacidades").value;
+      var desempenios = document.getElementById("desempenios").value;
+      var temas = document.getElementById("temas").value;
+
+
+      var textoPrompt = "Actua como un experto en diseño curricular de educación básica y elabora: 	-Los  mejores DESEMPEÑO PRECISADO para cada uno de los item de los TEMAS, indicando sus partes ACCION, CONTENIDO (breve), FINALIDAD, CONDICION y ACTITUD; teniendo en cuenta la siguiente información: Competencia, Capacidad, Desempeño y Temas.	-Las  mejoras EVIDENCIAS DE APRENDIZAJE para cada uno de los  item de los TEMAS, indicando sus partes ACCION, MEDIO, CONTENIDO (breve); teniendo en cuenta la siguiente información: Competencia, Capacidad, Desempeño y Temas.\n\n" +
+                        "COMPETENCIAS: " + competencias + "\n\n" +
+                        "CAPACIDADES: " + capacidades + "\n\n" +
+                        "DESEMPEÑOS: " + desempenios + "\n\n" +
+                        "TEMAS: " + temas;
+
+      document.getElementById("textoPrompt").value = textoPrompt;
+      document.getElementById("promptForm").style.display = "block";
+      document.getElementById("mostrarPromptBtn").style.display = "none";
+    }
+
+    function copiarPrompt() {
+      var textoPrompt = document.getElementById("textoPrompt");
+      textoPrompt.select();
+      document.execCommand("copy");
+      document.getElementById("promptForm").style.display = "none";
+      document.getElementById("mostrarPromptBtn").style.display = "block";
+      alert("¡El texto se ha copiado al portapapeles!");
+      document.getElementById("inputForm").reset();
+    }
+  </script>
+</body>
+</html>
+

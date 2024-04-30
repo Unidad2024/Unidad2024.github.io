@@ -1,0 +1,35 @@
+.contenedor {
+  display: flex;
+}
+
+.columna {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.imagen {
+  border-radius: 12px;
+  border: 1px solid #800000;
+  max-width: 100%;
+  height: auto;
+}
+
+.formulario {
+  border-radius: 12px;
+  border: 1px solid #8B4513;
+  padding: 20px;
+}
+
+footer {
+  background-color: #800000;
+  text-align: center;
+  padding: 20px;
+}
+
+.pie-de-pagina {
+  border-radius: 12px;
+  background-color: white;
+  max-width: 200px;
+  height: auto;
+}
